@@ -4,14 +4,12 @@ import com.jme3.app.SimpleApplication;
 import com.jme3.asset.TextureKey;
 import com.jme3.material.Material;
 import com.jme3.scene.Geometry;
-import com.jme3.scene.Node;
 import com.jme3.scene.shape.Box;
 import com.jme3.texture.Texture;
 
 public class Game extends SimpleApplication {
 
     private Geometry boxGeometry;
-    private Node boxNode;
 
     @Override
     public void simpleInitApp() {
@@ -30,19 +28,12 @@ public class Game extends SimpleApplication {
         boxGeometry.setLocalTranslation(0, 0, 2);
         boxGeometry.setMaterial(material);
 
-
-        boxNode = new Node("boxNode");
-        boxNode.attachChild(boxGeometry);
-        boxNode.rotate(25, 25, 25);
-
-        rootNode.attachChild(boxNode);
+        rootNode.attachChild(boxGeometry);
     }
 
     @Override
     public void simpleUpdate(float tpf) {
         super.simpleUpdate(tpf);
-        boxGeometry.rotate(0.1f * tpf, 0.1f * tpf, 0.1f * tpf);
-        boxGeometry.move(0.1f * tpf, 0.1f * tpf, 0.1f * tpf);
-        boxNode.rotate(tpf, tpf, tpf);
+        boxGeometry.rotate(0.5f * tpf, 0.5f * tpf, 0.5f * tpf);
     }
 }
